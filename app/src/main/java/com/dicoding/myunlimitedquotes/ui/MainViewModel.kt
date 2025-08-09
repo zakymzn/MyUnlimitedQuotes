@@ -9,9 +9,9 @@ import com.dicoding.myunlimitedquotes.di.Injection
 import com.dicoding.myunlimitedquotes.network.QuoteResponseItem
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val quoteRepository: QuoteRepository) : ViewModel() {
+class MainViewModel(quoteRepository: QuoteRepository) : ViewModel() {
 //    private val _quote = MutableLiveData<List<QuoteResponseItem>>()
-    var quote: LiveData<PagingData<QuoteResponseItem>> = quoteRepository.getQuote().cachedIn(viewModelScope)
+    val quote: LiveData<PagingData<QuoteResponseItem>> = quoteRepository.getQuote().cachedIn(viewModelScope)
 
 //    fun getQuote() {
 //        viewModelScope.launch {
